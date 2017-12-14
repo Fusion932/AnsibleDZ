@@ -1,0 +1,15 @@
+[loadbalancer]
+34.250.78.92
+
+[application-servers]
+52.16.83.252 app_name=app1
+34.242.111.110 app_name=app2
+34.253.37.89 app_name=app3
+
+[production:children]
+loadbalancer
+application-servers
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=ubuntu

@@ -2,3 +2,8 @@
 
   roles:
     - nginx
+
+- hosts: application-servers
+
+  roles:
+    - application

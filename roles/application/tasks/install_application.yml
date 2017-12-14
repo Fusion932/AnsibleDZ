@@ -1,0 +1,29 @@
+---
+- name: Install application
+  git:
+    repo: "{{ local_app_repo }}"
+    dest: "{{ local_app_directory }}"
+    version: "{{ local_app_version }}"
+  become: true
+
+- name: Install packages based on package.json.
+  npm:
+    path: "{{ local_app_directory }}"
+    state: latest
+  become: true
+
+- name: Install pm2
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+  become: true
+
+- name: Configuring application
+  template:
+    src: env.j2
+    dest: "{{ local_app_directory }}/.env"
+    owner: root
+    group: root
+    mode: 0644
+  become: true

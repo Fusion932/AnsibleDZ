@@ -1,0 +1,7 @@
+---
+local_env: "{{ env }}"
+local_app_port: "{{ app_port }}"
+local_app_version: "{{ app_version }}"
+local_app_directory: "{{ app_directory }}"
+local_app_repo: "{{ app_repo }}"
+local_app_name: "{{ app_name }}"

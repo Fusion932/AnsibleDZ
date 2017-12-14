@@ -1,0 +1,7 @@
+---
+env: production
+
+app_port: '80'
+app_version: 'v1.0.0'
+app_directory: '/opt/application'
+app_repo: 'https://bitbucket.org/ZaRDaK/devops-rolling-release.git'

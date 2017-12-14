@@ -1,0 +1,20 @@
+---
+- import_tasks: install_packages.yml
+  tags:
+    - application
+    - application:install_packages
+
+- import_tasks: install_application.yml
+  tags:
+    - application
+    - application:install_application
+
+- import_tasks: stop_application.yml
+  tags:
+    - application
+    - application:stop_application
+
+- import_tasks: start_application.yml
+  tags:
+    - application
+    - application:start_application
