@@ -1,8 +1,8 @@
 ---
-- import_tasks: installation.yml
+- import_tasks: initialization.yml
   tags:
     - application
-  when: state == 'installation'
+  when: state == 'initialization'
 
 - import_tasks: rolling.yml
   tags:

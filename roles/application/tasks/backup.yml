@@ -1,0 +1,11 @@
+---
+- name: Creating backup directory
+  file:
+    path: "{{ backup_directory }}"
+    state: directory
+    mode: 0755
+  become: true
+
+- name: Making backup...
+  command: "cp -r {{ local_app_directory }}/. {{ backup_directory }}"
+  become: true

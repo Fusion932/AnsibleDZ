@@ -1,4 +1,12 @@
 ---
+- name: Look for the "index.js" process
+  shell: "ps -ef |  grep {{ local_app_directory}}/index.js | grep -v grep"
+  register: process_stop_list
+  changed_when: false
+  ignore_errors: yes
+  become: true
+
 - name: Stop APP
   command: pm2 delete app chdir={{local_app_directory}}
+  when: "process_stop_list.stdout.find('index.js') != -1"
   become: true

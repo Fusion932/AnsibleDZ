@@ -1,10 +1,10 @@
 [loadbalancer]
-34.243.12.215
+XXX.XXX.XXX.XXX
 
 [application-servers]
-54.229.245.213 app_name=app1
-54.154.164.68 app_name=app2
-#34.253.37.89 app_name=app3
+YYY.YYY.YYY.YYY app_name=app1
+ZZZ.ZZZ.ZZZ.ZZZ app_name=app2
+TTT.TTT.TTT.TTT app_name=app3
 
 [production:children]
 loadbalancer

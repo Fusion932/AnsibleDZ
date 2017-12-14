@@ -13,3 +13,8 @@
   tags:
     - application
     - application:start_application
+
+- import_tasks: backup.yml
+  tags:
+    - application
+    - application:backup

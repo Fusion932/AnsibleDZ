@@ -1,2 +1,3 @@
 ---
+backup_directory: '/tmp/app_backup'
 node_repo: 'https://deb.nodesource.com/setup_7.x'

@@ -6,7 +6,7 @@
 - hosts: application-servers
 
   vars:
-    state: installation
+    state: initialization
 
   roles:
     - application
