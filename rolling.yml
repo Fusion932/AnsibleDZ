@@ -1,0 +1,27 @@
+---
+- hosts: application-servers
+  serial: 1
+
+  vars:
+    state: rolling
+
+  pre_tasks:
+    - include_tasks: roles/nginx/tasks/balancing_remove.yml target_hostname={{ inventory_hostname }}
+      delegate_to: "{{ item }}"
+      with_items: "{{ groups.loadbalancer }}"
+
+    - include_tasks: roles/nginx/tasks/service_reload.yml
+      delegate_to: "{{ item }}"
+      with_items: "{{ groups.loadbalancer }}"
+
+  roles:
+    - application
+
+  post_tasks:
+    - include_tasks: roles/nginx/tasks/balancing_add.yml target_hostname={{ inventory_hostname }}
+      delegate_to: "{{ item }}"
+      with_items: "{{ groups.loadbalancer }}"
+
+    - include_tasks: roles/nginx/tasks/service_reload.yml
+      delegate_to: "{{ item }}"
+      with_items: "{{ groups.loadbalancer }}"

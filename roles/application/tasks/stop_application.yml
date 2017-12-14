@@ -1,5 +1,4 @@
 ---
 - name: Stop APP
-  command: pm2 stop app chdir={{local_app_directory}}
-  ignore_errors: yes
+  command: pm2 delete app chdir={{local_app_directory}}
   become: true

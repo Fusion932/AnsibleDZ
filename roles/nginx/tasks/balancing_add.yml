@@ -1,0 +1,7 @@
+---
+- name: Add to balancing
+  lineinfile:
+    path: /etc/nginx/conf.d/default.conf
+    insertafter: '^upstream'
+    line: "    server {{ target_hostname }}:{{ app_port }};"
+  become: true

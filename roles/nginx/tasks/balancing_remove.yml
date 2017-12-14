@@ -1,0 +1,7 @@
+---
+- name: Remove from balancing
+  lineinfile:
+    dest: /etc/nginx/conf.d/default.conf
+    regexp: "{{ target_hostname }}"
+    state: absent
+  become: true

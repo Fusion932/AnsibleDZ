@@ -1,5 +1,16 @@
 ---
-- name: Start APP
-  command: pm2 start index.js --name app chdir={{local_app_directory}}
-  ignore_errors: yes
-  become: true
+- block:
+  - name: Start APP
+    command: pm2 start index.js --name app chdir={{local_app_directory}}
+    become: true
+
+  - name: "Waiting for port {{ local_app_port }} becomes available"
+    wait_for:
+      port: "{{ local_app_port }}"
+      delay: 2
+      timeout: 10
+  rescue:
+  - import_tasks: stop_application.yml
+
+  - name: Application's starting timed out
+    command: /bin/false

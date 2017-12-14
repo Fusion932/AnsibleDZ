@@ -1,20 +1,10 @@
 ---
-- import_tasks: install_packages.yml
+- import_tasks: installation.yml
   tags:
     - application
-    - application:install_packages
+  when: state == 'installation'
 
-- import_tasks: install_application.yml
+- import_tasks: rolling.yml
   tags:
     - application
-    - application:install_application
-
-- import_tasks: stop_application.yml
-  tags:
-    - application
-    - application:stop_application
-
-- import_tasks: start_application.yml
-  tags:
-    - application
-    - application:start_application
+  when: state == 'rolling'

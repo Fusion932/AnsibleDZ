@@ -5,5 +5,8 @@
 
 - hosts: application-servers
 
+  vars:
+    state: installation
+
   roles:
     - application

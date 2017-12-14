@@ -1,6 +1,6 @@
 upstream myapp1 {
 {% for ip in webservers %}
-    server {{ ip }};
+    server {{ ip }}:{{local_nginx_app_port}};
 {% endfor %}
 }
 

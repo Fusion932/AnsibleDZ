@@ -1,0 +1,2 @@
+---
+local_nginx_app_port: "{{ app_port }}"
