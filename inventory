@@ -1,0 +1,11 @@
+[loadbalancer]
+54.194.219.7
+
+[application-servers]
+34.240.194.130
+54.194.235.3
+54.194.219.107
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=ubuntu

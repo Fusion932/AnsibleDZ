@@ -1,0 +1,6 @@
+---
+webservers: "{{ groups['application-servers'] }}"
+nginx_key: "https://nginx.org/keys/nginx_signing.key"
+nginx_repos:
+  - "deb http://nginx.org/packages/ubuntu/ trusty nginx"
+  - "deb-src http://nginx.org/packages/ubuntu/ trusty nginx"

@@ -1,0 +1,20 @@
+upstream myapp1 {
+{% for ip in webservers %}
+    server {{ ip }};
+{% endfor %}
+}
+
+server {
+
+    listen *:80 default_server;
+    server_name localhost;
+    access_log /var/log/nginx/access.log;
+
+    location / {
+        proxy_pass http://myapp1;
+    }
+
+    location ~* \.(jpg|jpeg|gif|png|ico|css|bmp|swf|js|html|txt)$ {
+         root /usr/share/nginx/html;
+    }
+}
